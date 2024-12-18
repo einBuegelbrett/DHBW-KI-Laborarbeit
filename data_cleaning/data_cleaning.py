@@ -127,16 +127,31 @@ def get_alter(range_str):
 # Lage
 def get_lage(range_str):
     if isinstance(range_str, str):
-        if "Abgelegen" in range_str:
-            return 0
-        elif "Wohngebiet" in range_str:
-            return 0
-        elif "Hauptstrasse" in range_str:
-            return 1
-        elif "Nebenstrasse" in range_str:
-            return 2
+        if "Hauptstrasse" in range_str:
+            return 4
         elif "Spielstrasse" in range_str:
             return 3
+        elif "Wohngebiet" in range_str:
+            return 2
+        elif "Nebenstrasse" in range_str:
+            return 1
+        if "Abgelegen" in range_str:
+            return 0
+    return range_str
+
+# Stadtmitte
+def get_stadtmitte(range_str):
+    if isinstance(range_str, str):
+        if "Zentrum" in range_str:
+            return 0
+        if "<" in range_str:
+            return 3
+        elif ">" in range_str:
+            return 30
+        else:
+            numbers = range_str.split('-')
+            start, end = list(map(int, [numbers[0].strip(), numbers[1].replace(" km", "").strip()]))
+            return int(round((start + end) / 2))
     return range_str
 
 # Kaution
@@ -190,16 +205,13 @@ def get_mobliert(range_str):
 
 def get_quadratmeter(range_str):
     if isinstance(range_str, str):
-        if "ueber" in range_str:  # ueber 100 Jahre
-            return 100
-        elif "Neubau" in range_str:  # Neubau als 0 interpretieren
-            return 0
+        if "ueber" in range_str:
+            return 120
+        elif "bis" in range_str:
+            return 20
         else:
-            # Splitte den Wertebereich bei '-' und entferne "Jahre"
-            numbers = range_str.split('-')
-            start = int(numbers[0].strip())  # Erster Wert
-            end = int(numbers[1].replace("Jahre", "").strip())  # "Jahre" entfernen und bereinigen
-            return int(round((start + end) / 2))  # Durchschnitt berechnen
+            start, end = map(int, range_str.split('-'))
+            return int(round((start + end) / 2))
 
     return range_str
 
