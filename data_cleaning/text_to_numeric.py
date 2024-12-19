@@ -1,5 +1,5 @@
 # Zimmer
-def get_zimmer(zimmer):
+def get_zimmer(zimmer: str) -> int:
     if zimmer in ['Ein Zimmer', '1 Zimmer']:
         return 0
     elif zimmer in ['Zwei Zimmer', 'Drei Zimmer', '2 Zimmer', '3 Zimmer', '1-2 Zimmer', '2-3 Zimmer', ]:
@@ -10,7 +10,7 @@ def get_zimmer(zimmer):
         return 3
 
 # Stockwerk
-def get_stockwerk(range_str):
+def get_stockwerk(range_str: str) -> int:
     if isinstance(range_str, str):
         if "EG" in range_str:
             return 0
@@ -32,10 +32,10 @@ def get_stockwerk(range_str):
             return 8
         elif "9.Stock" in range_str:
             return 9
-    return range_str
+    return -1
 
 # Heizung
-def get_heizung(range_str):
+def get_heizung(range_str: str) -> int:
     if isinstance(range_str, str):
         if "Erdwaerme" in range_str:
             return 0
@@ -49,10 +49,10 @@ def get_heizung(range_str):
             return 4
         elif "Pellets" in range_str:
             return 5
-    return range_str
+    return -1
 
 # Kindergarten
-def get_kindergarten(range_str):
+def get_kindergarten(range_str: str) -> int:
     if isinstance(range_str, str):
         if "nah" in range_str:
             return 2
@@ -60,10 +60,10 @@ def get_kindergarten(range_str):
             return 1
         elif "fern" in range_str:
             return 0
-    return range_str
+    return -1
 
 # Schule
-def get_schule(range_str):
+def get_schule(range_str: str) -> int:
     if isinstance(range_str, str):
         if "nah" in range_str:
             return 2
@@ -71,10 +71,10 @@ def get_schule(range_str):
             return 1
         elif "fern" in range_str:
             return 0
-    return range
+    return -1
 
 # S-Bahn
-def get_bahn(range_str):
+def get_bahn(range_str: str) -> int:
     if isinstance(range_str, str):
         if "nah" in range_str:
             return 4
@@ -86,10 +86,10 @@ def get_bahn(range_str):
             return 1
         elif "nein" in range_str:
             return 0
-    return range
+    return -1
 
 # miete
-def get_miete(value):
+def get_miete(value: str) -> int:
     if '-' in value:
         start, end = value.split('-')
         return int(round((int(start) + int(end)) / 2))
@@ -97,7 +97,7 @@ def get_miete(value):
         return int(value)
 
 # Funktion zum Berechnen des Durchschnitts aus einem Wertebereich
-def get_nebenkosten(range_str):
+def get_nebenkosten(range_str: str) -> int:
     if isinstance(range_str, str):
         if "ueber" in range_str:
             return 300
@@ -108,10 +108,10 @@ def get_nebenkosten(range_str):
             start, end = map(int, range_str.split('-'))
             # Berechne den Durchschnitt
             return int(round((start + end) / 2))
-    return range_str
+    return -1
 
 # Alter
-def get_alter(range_str):
+def get_alter(range_str: str) -> int:
     if isinstance(range_str, str):
         if "ueber" in range_str:  # "ueber 100 Jahre"
             return 100
@@ -122,10 +122,10 @@ def get_alter(range_str):
             numbers = range_str.split('-')
             start, end = list(map(int, [numbers[0].strip(), numbers[1].replace("Jahre", "").strip()]))
             return int(round((start + end) / 2))  # Durchschnitt berechnen
-    return range_str
+    return -1
 
 # Lage
-def get_lage(range_str):
+def get_lage(range_str: str) -> int:
     if isinstance(range_str, str):
         if "Hauptstrasse" in range_str:
             return 4
@@ -137,10 +137,10 @@ def get_lage(range_str):
             return 1
         if "Abgelegen" in range_str:
             return 0
-    return range_str
+    return -1
 
 # Stadtmitte
-def get_stadtmitte(range_str):
+def get_stadtmitte(range_str: str) -> int:
     if isinstance(range_str, str):
         if "Zentrum" in range_str:
             return 0
@@ -152,10 +152,10 @@ def get_stadtmitte(range_str):
             numbers = range_str.split('-')
             start, end = list(map(int, [numbers[0].strip(), numbers[1].replace(" km", "").strip()]))
             return int(round((start + end) / 2))
-    return range_str
+    return -1
 
 # Kaution
-def get_kaution(range_str):
+def get_kaution(range_str: str) -> int:
     if isinstance(range_str, str):
         if "ueber" in range_str:  # "ueber 100 Jahre"
             return 3000
@@ -164,10 +164,10 @@ def get_kaution(range_str):
         else:
             start, end = map(int, range_str.split('-'))
             return int(round((start + end) / 2))
-    return range_str
+    return -1
 
 # Kueche
-def get_kueche(range_str):
+def get_kueche(range_str: str) -> int:
     if isinstance(range_str, str):
         if "keine" in range_str:
             return 0
@@ -175,10 +175,10 @@ def get_kueche(range_str):
             return 1
         elif "Kueche (neu)" in range_str:
             return 2
-    return range_str
+    return -1
 
 # Bad
-def get_bad(range_str):
+def get_bad(range_str: str) -> int:
     if isinstance(range_str, str):
         if "Badewanne" in range_str:
             return 0
@@ -190,10 +190,10 @@ def get_bad(range_str):
             return 3
         elif "Waschbecken" in range_str:
             return 4
-    return range_str
+    return -1
 
 # mobliert
-def get_mobliert(range_str):
+def get_mobliert(range_str: str) -> int:
     if isinstance(range_str, str):
         if "ja" in range_str:
             return 2
@@ -201,9 +201,9 @@ def get_mobliert(range_str):
             return 1
         elif "nein" in range_str:
             return 0
-    return range
+    return -1
 
-def get_quadratmeter(range_str):
+def get_quadratmeter(range_str: str) -> int:
     if isinstance(range_str, str):
         if "ueber" in range_str:
             return 120
@@ -212,6 +212,5 @@ def get_quadratmeter(range_str):
         else:
             start, end = map(int, range_str.split('-'))
             return int(round((start + end) / 2))
-
-    return range_str
+    return -1
 
