@@ -64,7 +64,7 @@ def calculate_combined_mass(data: DataFrame, attributes_values: dict, omega: lis
                 print("Kombinierte Evidenz:", combined_mass)
             except ZeroDivisionError:
                 # Konflikt erkannt: Setze die Masse auf Unsicherheit
-                print("Konflikt erkannt: Keine gemeinsame Hypothese zwischen den Massen.")
+                print("Konflikt erkannt: Keine gemeinsame Hypothese zwischen den Basismassen.")
                 combined_mass = MassFunction({frozenset(): 1.0})
 
     return combined_mass
