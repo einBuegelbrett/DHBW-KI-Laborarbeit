@@ -40,7 +40,7 @@ def calculate_basismasse(data: DataFrame, column_name: str, value: int, omega: l
 
 def calculate_combined_mass(data: DataFrame, attributes_values: dict, omega: list) -> MassFunction:
     """
-    Berechnet die kombinierte Evidenz für eine gegebene Kombination von Attributen.
+    Berechnet die kombinierte Evidenz für eine gegebene Kombination von Attributen indem die Basismasse Akkumuliert wird.
 
     :param data: DataFrame mit den Daten
     :param attributes_values: Dictionary {Attribut: Wert}, z. B. {'Garage': 1, 'Lage': 2}
