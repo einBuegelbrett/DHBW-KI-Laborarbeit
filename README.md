@@ -15,4 +15,5 @@ In den Jupyter Notebooks werden die Schritte und Ergebnisse dokumentiert. Die No
 - evidenztheorie_wohnungen_{1 oder 2}.ipynb: Stellt Aufgabenteil 2 dar, in dem ein KI Modell auf Basis der Evidenztheorie erstellt wird.
 - vergleich_ki_wohnungen_{1 oder 2}.ipynb: Stellt Aufgabenteil 3 dar, in dem die beiden KI Modelle verglichen werden.
 
-Zusätlich wurde eine pyton package `data_cleaning` erstellt, die die Datenbereinigungsfunktionen enthält. Es wurde diese erstellt, denn die Datenbereinigungsfunktionen werden in den verschiedenen Notebooks mehrmals verwendet. Die Funktionen sind in der Datei `data_cleaning/data_cleaning.py` zu finden.
+Zusätzlich wurde ein Python-Paket `data_cleaning` erstellt, das die Datenbereinigungsfunktionen enthält. Dieses wurde erstellt, da die Datenbereinigungsfunktionen in den verschiedenen Notebooks mehrfach verwendet werden. Die Funktionen befinden sich in der Datei `data_cleaning/text_to_numeric.py`.
+Es wurde auch ein Python-Paket `combined_mass` erstellt, das die Funktionen für die kombinierte Grundmasse enthält. Die Funktionen sind in der Datei `combined_mass/combined_mass.py` zu finden.
